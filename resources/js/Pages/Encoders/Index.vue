@@ -1,5 +1,5 @@
 <template>
-    <AppLayout Title="Welcome Encoder!">
+    <AppLayout Title>
         <template #header>
             
         <PrimaryButton class="float-right" @click="createResult">
