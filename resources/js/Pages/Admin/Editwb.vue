@@ -6,62 +6,63 @@
             </h2>
         </template>
         <div class="flex px-10 m-10"></div>
-        <div class="md:grid md:grid-cols-4">
+        
         <FormSection>
             <template #title>
                 
             </template>
             
             <template #form>
-                <div class="col-span-6 sm:col-span-4 gap-8 columns-2">
+                <div class="col-span-6 sm:col-span-4">
                 <InputLabel for="" value="Name of Waterbody:" />
                 <TextInput
                     id=""
                     type="text"
                     class="mt-1 block w-full"/>
-
+                </div>
+                <div class="col-span-6 sm:col-span-4">
                 <InputLabel for="" value="No of Stations:" />
                 <TextInput
                     id=""
                     type="text"
                     class="mt-1 block w-full"/>
-
                 </div>
-                <div class="col-span-6 sm:col-span-4 gap-8 columns-2">
+                <div class="col-span-6 sm:col-span-4">
                 <InputLabel for="" value="Location:" />
                 <TextInput
                     id=""
                     type="text"
                     class="mt-1 block w-full"/>
-                
+                </div>
+                <div class="col-span-6 sm:col-span-4">
                 <InputLabel for="" value="City:" />
                 <TextInput
                     id=""
                     type="text"
                     class="mt-1 block w-full"/>
                 </div>
-
-                <div class="col-span-6 sm:col-span-4 gap-8 columns-2">
+                <div class="col-span-6 sm:col-span-4">
                 <InputLabel for="" value="Province:" />
                 <TextInput
                     id=""
                     type="text"
                     class="mt-1 block w-full"/>
-
-                <InputLabel for="" value="Region:" />
+                </div>
+                <div class="col-span-6 sm:col-span-4">
+                <InputLabel for="" value="Reg:" />
                 <TextInput
                     id=""
                     type="text"
                     class="mt-1 block w-full"/>
                 </div>
-                
-                <div class="col-span-6 sm:col-span-4 gap-8 columns-2">
+                <div class="col-span-6 sm:col-span-4">
                 <InputLabel for="" value="Program:" />
                 <TextInput
                     id=""
                     type="text"
                     class="mt-1 block w-full"/>
-                    
+                </div>
+                <div class="col-span-6 sm:col-span-4">
                 <InputLabel for="" value="Classification:" />
                 <select name ="waterbody" @change="onChange($event)" class="mt-1 block w-full">
                     <option value="">---Select Classification of Waterbody---</option>
@@ -76,35 +77,34 @@
                     <option value="">SD</option>
                 </select>
                 </div>
-                
-                <div class="col-span-6 sm:col-span-4 gap-8 columns-2">
+                <div class="col-span-6 sm:col-span-4">
                 <InputLabel for="" value="Remarks:" />
                 <TextInput
                     id=""
                     type="text"
                     class="mt-1 block w-full"/>
-                
+                </div>
+                <div class="col-span-6 sm:col-span-4">
                 <InputLabel for="" value="Reference:" />
                 <TextInput
                     id=""
                     type="text"
                     class="mt-1 block w-full"/>
                 </div>
-               
-                <div class="col-span-6 sm:col-span-4  gap-8 columns-2">
+                <div class="col-span-6 sm:col-span-4">
                 <InputLabel for="" value="Reference Date:" />
                 <TextInput
                     id=""
                     type="text"
                     class="mt-1 block w-full"/>
-                
+                </div>
+                <div class="col-span-6 sm:col-span-4">
                 <InputLabel for="" value="Background:" />
                 <TextInput
                     id=""
                     type="text"
                     class="mt-1 block w-full"/>
                 </div>
-                
                 <div class="col-span-6 sm:col-span-4">
                 <InputLabel for="" value="Status:" />
                 <select name ="waterbody" @change="onChange($event)" class="mt-1 block w-full">
@@ -120,7 +120,6 @@
                 </PrimaryButton>
             </template>
         </FormSection>
-    </div>
     </AppLayout>
 </template>
 
@@ -150,4 +149,4 @@ export default{
     }
 
 }
-</script>
+</script> 
