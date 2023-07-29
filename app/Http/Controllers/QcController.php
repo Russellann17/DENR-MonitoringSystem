@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Inertia\Inertia;
 
-
-class EncoderController extends Controller
+class QcController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +13,7 @@ class EncoderController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Admin/Index');
+        return Inertia::render('Qualitychecker/Index');
     }
 
     /**
@@ -25,7 +23,7 @@ class EncoderController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Encoders/Create');
+        return Inertia::render('QC/Create');
     }
 
     /**

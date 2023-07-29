@@ -1,5 +1,5 @@
 <template>
-    <AppLayout Title="Welcome Encoder!">
+    <AppLayout Title="Welcome Admin!">
         <template #header>
             
         <PrimaryButton class="float-right" @click="createResult">
@@ -77,10 +77,10 @@ export default{
 
     methods:{
         createResult(){
-            router.visit(route('encoders.create'), { method: 'get' })
+            router.visit(route('admin.create'), { method: 'get' })
         },
         editResult(){
-            router.visit(route('encoders.edit'), { method: 'get' })
+            router.visit(route('admin.edit'), { method: 'get' })
         }
 
     }

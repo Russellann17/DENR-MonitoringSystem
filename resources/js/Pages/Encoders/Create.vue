@@ -2,11 +2,11 @@
     <AppLayout Title="Task Management">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Encoding of Result
+                Add of Result
             </h2>
         </template>
         <div class="flex px-10 m-10"></div>
-        
+        <div class="md:grid md:grid-cols-3">
         <FormSection>
             <template #title>
                 <div class="col-span-6 sm:col-span-4">
@@ -58,8 +58,14 @@
                     type="text"
                     class="mt-1 block w-full"/>
                 </div>
+<!-- ADD FILE BUTTON -->
                 <div class="col-span-6 sm:col-span-4">
                 <InputLabel for="" value="Lab Result:" />
+                <input type="file" @change="onFileChange">
+                </div>
+
+                <div class="col-span-6 sm:col-span-4">
+                <InputLabel for="" value="Attach photo of station:" />
                 <input type="file" @change="onFileChange">
                 </div>
             </template>
@@ -151,7 +157,7 @@
                 </PrimaryButton>
             </template>
         </FormSection>
-
+</div>
 <!-- SHOW AND HIDE THE SECONDARY PARAMETER -->
         <div class="pt-6 mb-8">
         <SecondaryButton @click="showSecondary = !showSecondary" class="mt-1 block w-full">
@@ -450,13 +456,13 @@ export default{
     data(){
         return{
             selectedFile: null,
-            showSecondary: true
+            showSecondary: false
         }
     },
 
     methods:{
-        createResult(){
-            router.visit(route('encoders.create'), { method: 'get' })
+        editResult(){
+            router.visit(route('encoders.edit'), { method: 'get' })
         },
         onFileChange(e) {
             var files = e.target.files || e.dataTransfer.files;
@@ -479,5 +485,3 @@ export default{
 
 }
 </script>
-
-

@@ -8,7 +8,6 @@ const hasActions = computed(() => !! useSlots().actions);
 </script>
 
 <template>
-    <div class="md:grid md:grid-cols-3">
         <SectionTitle>
             <template #title>
                 <slot name="title" />
@@ -34,5 +33,4 @@ const hasActions = computed(() => !! useSlots().actions);
                 </div>
             </form>
         </div>
-    </div>
 </template>

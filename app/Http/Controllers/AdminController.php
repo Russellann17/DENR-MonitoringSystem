@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-
-class EncoderController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +24,7 @@ class EncoderController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Encoders/Create');
+        return Inertia::render('Admin/Create');
     }
 
     /**
@@ -35,8 +34,16 @@ class EncoderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {     
+        $admin= new Admin();
+        $admin->description = $request->description;
+        $admin->status = $request->status == 'Active' ? 1 : 0; //shorten if statement
+        $admin->assignee = $request->assignee;
+        $admin-> save();
+
+        request()->session()->flash('flash.banner', 'Successfully Saved Task');
+
+        return back();
     }
 
     /**

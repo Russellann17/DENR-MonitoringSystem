@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            // $table->string('position')->constrained();
+        Schema::create('role_user', function (Blueprint $table) {
+            $table->id();
+            $table->foreignID('role_id')->constrained()->onDelete('cascade');
+            $table->foreignID('user_id')->constrained()->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('position');
-        });
+        Schema::dropIfExists('role_user');
     }
 };

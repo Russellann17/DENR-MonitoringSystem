@@ -49,4 +49,5 @@
                 </div>
             </div>
         </div>
+        <iframe src="https://my.atlistmaps.com/map/ab1a2d2d-5858-43e7-b30b-01ce681c9c27?share=true" allow="geolocation 'self' https://my.atlistmaps.com" width="50%" height="400px" frameborder="0" scrolling="no" allowfullscreen></iframe>
 </template>

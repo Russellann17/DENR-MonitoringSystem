@@ -80,7 +80,7 @@ export default{
             router.visit(route('encoders.create'), { method: 'get' })
         },
         editResult(){
-            router.visit(route('encoders.edit'), { method: 'get' })
+            this.$inertia.visit(route('encoders.edit'), { method: 'get' })
         }
 
     }

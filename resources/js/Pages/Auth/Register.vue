@@ -50,13 +50,22 @@ const submit = () => {
             
             <div class="mt-4">
                 <InputLabel for="position" value="Position" />
-                <select name ="position" @change="onChange($event)" class="mt-1 block w-full">
-                <option value="">-----Select Position------</option>
-                <option value="encoder">Encoder</option>
+                <select class="mt-1 block w-full" name="position" type="text">
+                <option selected>Pick Type</option>
                 <option value="quality_checker">Quality Checker</option>
+                <option value="encoder">Encoder</option>
                 <option value="reporter">Reporter</option>
                 </select>
-                <InputError class="mt-2" :message="form.errors.position" />
+                <!-- <TextInput
+                    id="position"
+                    v-model="form.position"
+                    type="text"
+                    class="mt-1 block w-full"
+                    required
+                    autofocus
+                    autocomplete="position"
+                />
+                <InputError class="mt-2" :message="form.errors.name" /> -->
             </div>
 
             <div class="mt-4">
@@ -122,16 +131,3 @@ const submit = () => {
         </form>
     </AuthenticationCard>
 </template>
-
-<script>
-export default{
-    data () {
-        return {
-            onChange(e){
-                console.log(e.target.value);
-            },
-            open:false, 
-        }
-    }
-}
-</script>

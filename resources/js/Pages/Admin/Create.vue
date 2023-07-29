@@ -8,114 +8,118 @@
         <div class="flex px-10 m-10"></div>
         <div class="md:grid md:grid-cols-4">
         <FormSection>
-            <template #title>
-                
-            </template>
-            
+            <template #title></template>
+
             <template #form>
                 <div class="col-span-6 sm:col-span-4 gap-8 columns-2">
-                <InputLabel for="" value="Name of Waterbody:" />
+                <InputLabel for="name" value="Name of Waterbody:" />
                 <TextInput
-                    id=""
+                    id="name"
+                    v-model="form.name"
                     type="text"
-                    class="mt-1 block w-full"/>
+                    class="mt-1 block w-full"
+                    required/>
 
-                <InputLabel for="" value="No of Stations:" />
+                <InputLabel for="no_station" value="No of Stations:" />
                 <TextInput
-                    id=""
+                    id="no_station"
+                    v-model="form.no_station"
                     type="text"
-                    class="mt-1 block w-full"/>
-
+                    class="mt-1 block w-full"
+                    required/>
                 </div>
+
                 <div class="col-span-6 sm:col-span-4 gap-8 columns-2">
-                <InputLabel for="" value="Location:" />
+                <InputLabel for="location" value="Location:" />
                 <TextInput
-                    id=""
+                    id="location"
+                    v-model="form.location"
                     type="text"
-                    class="mt-1 block w-full"/>
+                    class="mt-1 block w-full"
+                    required/>
                 
-                <InputLabel for="" value="City:" />
+                <InputLabel for="city" value="City/Municipality:" />
                 <TextInput
-                    id=""
+                    id="city"
+                    v-model="form.city"
                     type="text"
-                    class="mt-1 block w-full"/>
+                    class="mt-1 block w-full"
+                    required/>
                 </div>
 
                 <div class="col-span-6 sm:col-span-4 gap-8 columns-2">
-                <InputLabel for="" value="Province:" />
+                <InputLabel for="province" value="Province:" />
                 <TextInput
-                    id=""
+                    id="province"
+                    v-model="form.province"
                     type="text"
                     class="mt-1 block w-full"/>
 
-                <InputLabel for="" value="Region:" />
+                <InputLabel for="region" value="Region:" />
                 <TextInput
-                    id=""
+                    id="region"
+                    v-model="form.region"
                     type="text"
                     class="mt-1 block w-full"/>
                 </div>
                 
                 <div class="col-span-6 sm:col-span-4 gap-8 columns-2">
-                <InputLabel for="" value="Program:" />
+                <InputLabel for="program" value="Program:" />
                 <TextInput
-                    id=""
+                    id="program"
+                    v-model="form.program"
                     type="text"
                     class="mt-1 block w-full"/>
                     
-                <InputLabel for="" value="Classification:" />
-                <select name ="waterbody" @change="onChange($event)" class="mt-1 block w-full">
-                    <option value="">---Select Classification of Waterbody---</option>
-                    <option value="">AA</option>
-                    <option value="">A</option>
-                    <option value="">B</option>
-                    <option value="">C</option>
-                    <option value="">D</option>
-                    <option value="">SA</option>
-                    <option value="">SB</option>
-                    <option value="">SC</option>
-                    <option value="">SD</option>
+                <InputLabel for="classification" value="Classification:" />
+                <select name ="classification" class="mt-1 block w-full">
+                    <option selected>Select Classification of Waterbody</option>
+                    <option value="AA">AA</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="SA">SA</option>
+                    <option value="SB">SB</option>
+                    <option value="SC">SC</option>
+                    <option value="SD">SD</option>
                 </select>
                 </div>
                 
                 <div class="col-span-6 sm:col-span-4 gap-8 columns-2">
-                <InputLabel for="" value="Remarks:" />
+                <InputLabel for="class_reference" value="Reference:" />
                 <TextInput
-                    id=""
+                    id="class_reference"
+                    v-model="form.class_reference"
                     type="text"
                     class="mt-1 block w-full"/>
                 
-                <InputLabel for="" value="Reference:" />
-                <TextInput
-                    id=""
-                    type="text"
+                <InputLabel for="date_classification" value="Reference Date:" />
+                <input
+                    id="date_classification"
+                    v-model="form.date_classification"
+                    type="date"
                     class="mt-1 block w-full"/>
                 </div>
                
                 <div class="col-span-6 sm:col-span-4  gap-8 columns-2">
-                <InputLabel for="" value="Reference Date:" />
+                <InputLabel for="background" value="Background:" />
                 <TextInput
-                    id=""
+                    id="background"
+                    v-model="form.background"
                     type="text"
                     class="mt-1 block w-full"/>
-                
-                <InputLabel for="" value="Background:" />
-                <TextInput
-                    id=""
-                    type="text"
-                    class="mt-1 block w-full"/>
-                </div>
-                
-                <div class="col-span-6 sm:col-span-4">
-                <InputLabel for="" value="Status:" />
-                <select name ="waterbody" @change="onChange($event)" class="mt-1 block w-full">
-                    <option value="">---Status of Waterbody---</option>
-                    <option value="">Active</option>
-                    <option value="">Inactive</option>
+                    
+                <InputLabel for="status" value="Status:" />
+                <select name ="status" @change="onChange($event)" class="mt-1 block w-full">
+                    <option selected>Pick Status of Waterbody</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
                 </select>
                 </div>
             </template>
             <template #actions>
-                <PrimaryButton>
+                <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing"  @click='saveWB'>
                     Save
                 </PrimaryButton>
             </template>
@@ -127,6 +131,7 @@
 <script>
 
 import AppLayout from"@/Layouts/AppLayout.vue";
+import { Link } from '@inertiajs/vue3';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
 import FormSection from '@/Components/FormSection.vue';
@@ -136,18 +141,41 @@ import TextInput from '@/Components/TextInput.vue';
 export default{
     components:{
         AppLayout,
+        Link,
         PrimaryButton,
         SecondaryButton,
         FormSection,
         InputLabel,
         TextInput
     },
-    
-    methods:{
-        editResult(){
-            router.visit(route('encoders.edit'), { method: 'get' })
+
+    data: function(){ //ibutang ang mga variables
+    return{
+        form: this.$inertia.form({
+            name: null,
+            no_station: null,
+            location: null,
+            city: null,
+            province: null,
+            region: null,
+            program: null,
+            classification: null,
+            date_classification: null,
+            class_reference: null,
+            background: null,
+            status: null
+        }),
+    };
+},
+
+methods:{
+    saveWB(){
+        this.$inertia.post(route('admin.store'), this.form,{
+            onSuccess:() => {
+            this.form.reset();
+            }
+        });
         }
     }
-
 }
 </script>

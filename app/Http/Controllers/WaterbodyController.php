@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Inertia\Inertia;
 
-
-class EncoderController extends Controller
+class WaterbodyController extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -25,7 +23,7 @@ class EncoderController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Encoders/Create');
+        return Inertia::render('Admin/Create');
     }
 
     /**

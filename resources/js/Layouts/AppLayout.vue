@@ -54,9 +54,6 @@ const logout = () => {
                                 <NavLink :href="route('encoders.index')" :active="route().current('encoders.index')">
                                     Encode Result
                                 </NavLink>
-                                <!-- <NavLink :href="route('encoders.encoderindex')" :active="route().current('encoders.encoderindex')">
-                                    Encode Result
-                                </NavLink> -->
                             </div>
                         </div>
 
@@ -193,7 +190,7 @@ const logout = () => {
                         </div>
                     </div>
                 </div>
-
+                
                 <!-- Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
@@ -290,4 +287,5 @@ const logout = () => {
             </main>
         </div>
     </div>
+    
 </template>
